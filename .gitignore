@@ -1,0 +1,8 @@
+# ignore everything
+*
+
+# but
+!.gitignore
+!.tmux.conf
+!.vimrc
+!.zshrc
