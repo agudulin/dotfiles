@@ -47,7 +47,7 @@ source $HOME/.npm-run.plugin.zsh/npm-run.plugin.zsh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export GITHUB_USER="aguudlin"
+export GITHUB_USER="agudulin"
 export EDITOR="nvim"
 
 export PATH=$(brew --prefix ruby)/bin:$PATH
