@@ -25,8 +25,8 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
 " Nerdtree is kind of toolbar
 Bundle 'scrooloose/nerdtree'
-" Syntax checking hacks
-Plugin 'scrooloose/syntastic'
+" Asynchronous :make using Neovim's job-control functionality
+Plugin 'https://github.com/benekastah/neomake'
 " Comment blocks of code
 Plugin 'scrooloose/nerdcommenter'
 " Awesome toolbar at the bottom
@@ -39,8 +39,6 @@ Plugin 'othree/html5.vim'
 Plugin 'godlygeek/tabular'
 " ES6, React.js
 Plugin 'mxw/vim-jsx'
-" Dart lang support
-"Plugin 'https://github.com/dart-lang/dart-vim-plugin'
 "
 Plugin 'https://github.com/ternjs/tern_for_vim'
 "Plugin 'Valloric/YouCompleteMe'
@@ -159,15 +157,30 @@ let coffee_lint_options = '-f ~/.coffeelint.json'
 let g:vim_markdown_math=1
 " Use JSX syntax in .js files
 let g:jsx_ext_required = 0
-"let g:syntastic_haml_checkers = ['haml_lint']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
-"let g:loaded_syntastic_dart_dartanalyzer_checker = 0
-" Trim any starting and trailing whitespace from a vim string
-function! StrTrim(txt)
-  return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+
+" Setup syntax checkers
+if filereadable('.eslintrc')
+  let g:neomake_javascript_enabled_makers = ['eslint']
+  let g:neomake_jsx_enabled_makers = ['eslint']
+else
+  let g:neomake_javascript_enabled_makers = ['standard']
+  let g:neomake_jsx_enabled_makers = ['standard']
+endif
+autocmd! BufWritePost * Neomake
+
+function! s:standard()
+  let g:neomake_javascript_enabled_makers = ['standard']
+  let g:neomake_jsx_enabled_makers = ['standard']
+  Neomake
 endfunction
-let g:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
+command! Standard :call <SID>standard()
+
+function! s:eslint()
+  let g:neomake_javascript_enabled_makers = ['eslint']
+  let g:neomake_jsx_enabled_makers = ['eslint']
+  Neomake
+endfunction
+command! Eslint :call <SID>eslint()
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
