@@ -46,6 +46,7 @@ source $HOME/.npm-run.plugin.zsh/npm-run.plugin.zsh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias :q=exit
 
 export GITHUB_USER="agudulin"
 export EDITOR="nvim"
