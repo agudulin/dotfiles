@@ -5,18 +5,19 @@ colorscheme hybrid
 set nocompatible
 
 " ------------------------------------------------------------
-filetype off                  " required
+" required
+filetype off
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 " find files by ctrl-p shortcut
-Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 " highlight trailing whitespaces
 Plugin 'ntpeters/vim-better-whitespace'
 " awesome vim
-Plugin 'https://github.com/tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 " syntax highlighting for .less
 Bundle 'groenewege/vim-less'
 " syntax highlighting for coffeescript
@@ -26,13 +27,13 @@ Plugin 'pangloss/vim-javascript'
 " Nerdtree is kind of toolbar
 Bundle 'scrooloose/nerdtree'
 " Asynchronous :make using Neovim's job-control functionality
-Plugin 'https://github.com/benekastah/neomake'
+Plugin 'benekastah/neomake'
 " Comment blocks of code
 Plugin 'scrooloose/nerdcommenter'
 " Awesome toolbar at the bottom
 Bundle 'Lokaltog/vim-powerline'
 " Support .scala.html files from Playframework
-Bundle 'https://github.com/gre/play2vim.git'
+Bundle 'gre/play2vim'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'othree/html5.vim'
 " Markdown
@@ -40,17 +41,17 @@ Plugin 'godlygeek/tabular'
 " ES6, React.js
 Plugin 'mxw/vim-jsx'
 "
-Plugin 'https://github.com/ternjs/tern_for_vim'
+Plugin 'ternjs/tern_for_vim'
 "Plugin 'Valloric/YouCompleteMe'
 " color scheme
 "Plugin 'trusktr/seti.vim'
-Plugin 'https://github.com/w0ng/vim-hybrid'
+Plugin 'w0ng/vim-hybrid'
 " search in project
 Plugin 'mileszs/ack.vim'
 " Clojure
-Plugin 'https://github.com/guns/vim-clojure-static'
+Plugin 'guns/vim-clojure-static'
 " Elm
-Plugin 'https://github.com/lambdatoast/elm.vim.git'
+Plugin 'lambdatoast/elm.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
