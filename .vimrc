@@ -24,35 +24,31 @@ Bundle 'groenewege/vim-less'
 Plugin 'kchmck/vim-coffee-script'
 " syntax and indent plugins for js
 Plugin 'pangloss/vim-javascript'
-" Nerdtree is kind of toolbar
+" nerdtree is kind of toolbar
 Bundle 'scrooloose/nerdtree'
-" Asynchronous :make using Neovim's job-control functionality
+" asynchronous :make using Neovim's job-control functionality
 Plugin 'benekastah/neomake'
-" Comment blocks of code
+" comment blocks of code
 Plugin 'scrooloose/nerdcommenter'
-" Awesome toolbar at the bottom
+" awesome toolbar at the bottom
 Bundle 'Lokaltog/vim-powerline'
-" Support .scala.html files from Playframework
-Bundle 'gre/play2vim'
-Plugin 'derekwyatt/vim-scala'
+" html5
 Plugin 'othree/html5.vim'
-" Markdown
+" markdown
 Plugin 'godlygeek/tabular'
-" ES6, React.js
+" es6, react.js
 Plugin 'mxw/vim-jsx'
-"
+" autocompletion
 Plugin 'ternjs/tern_for_vim'
-"Plugin 'Valloric/YouCompleteMe'
 " color scheme
-"Plugin 'trusktr/seti.vim'
 Plugin 'w0ng/vim-hybrid'
 " search in project
 Plugin 'mileszs/ack.vim'
-" Clojure
+" clojure
 Plugin 'guns/vim-clojure-static'
-" Elm
+" elm
 Plugin 'lambdatoast/elm.vim'
-" All of your Plugins must be added before the following line
+" all of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " ------------------------------------------------------------
@@ -71,21 +67,15 @@ set lazyredraw
 " Add the g flag to search/replace by default
 set gdefault
 " Use UTF-8 without BOM
-set encoding=utf-8 nobomb
+"set encoding=utf-8 nobomb
 " Change mapleader
 let mapleader=","
 " Don’t add empty newlines at the end of files
 set binary
 set noeol
-" Centralize backups, swapfiles and undo history
-set backupdir=~/.vim/backups
-set directory=~/.vim/swaps
-if exists("&undodir")
-  set undodir=~/.vim/undo
-endif
-
-" Don’t create backups when editing files in certain directories
-set backupskip=/tmp/*,/private/tmp/*
+" Backups are for pussies
+set nobackup
+set noswapfile
 " Use ack instead of grep
 set grepprg=ack
 " Respect modeline in files
@@ -152,6 +142,9 @@ nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
 " Open new tab
 nmap <silent><leader>to :tabnew .<CR>
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " Coffeelint options
 let coffee_lint_options = '-f ~/.coffeelint.json'
 " Markdown latex math escaping
