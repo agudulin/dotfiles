@@ -18,20 +18,18 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 " awesome vim
 Plugin 'tpope/vim-fugitive'
-" syntax highlighting for .less
-Bundle 'groenewege/vim-less'
 " syntax highlighting for coffeescript
 Plugin 'kchmck/vim-coffee-script'
 " syntax and indent plugins for js
 Plugin 'pangloss/vim-javascript'
 " nerdtree is kind of toolbar
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 " asynchronous :make using Neovim's job-control functionality
 Plugin 'benekastah/neomake'
 " comment blocks of code
 Plugin 'scrooloose/nerdcommenter'
 " awesome toolbar at the bottom
-Bundle 'Lokaltog/vim-powerline'
+Plugin 'Lokaltog/vim-powerline'
 " html5
 Plugin 'othree/html5.vim'
 " markdown
@@ -89,7 +87,7 @@ set number
 " Enable syntax highlighting
 syntax on
 " Highlight current line
-set cursorline
+"set cursorline
 " By default it is preview,menuone
 set completeopt=menuone
 " Make tabs as wide as two spaces
@@ -126,13 +124,6 @@ set title
 set showcmd
 " Number of pixel lines to use between characters¬
 set lsp=1
-" Use relative line numbers
-if exists("&relativenumber")
-  set relativenumber
-  au BufReadPost * set relativenumber
-endif
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
 " NerdTree style for project list (file-tree)
 let g:netrw_liststyle=3
 " Tweak CTRL-P
