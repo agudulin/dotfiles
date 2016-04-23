@@ -36,8 +36,6 @@ Plugin 'othree/html5.vim'
 Plugin 'godlygeek/tabular'
 " es6, react.js
 Plugin 'mxw/vim-jsx'
-" autocompletion
-Plugin 'ternjs/tern_for_vim'
 " color scheme
 Plugin 'w0ng/vim-hybrid'
 " search in project
@@ -145,6 +143,7 @@ let g:jsx_ext_required = 0
 
 " Setup syntax checkers
 if filereadable('.eslintrc')
+  let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
   let g:neomake_javascript_enabled_makers = ['eslint']
   let g:neomake_jsx_enabled_makers = ['eslint']
 else
