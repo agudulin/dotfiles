@@ -24,7 +24,6 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git osx npm github)
 
 # User configuration
-
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -51,6 +50,7 @@ export GITHUB_USER="agudulin"
 export EDITOR="nvim"
 
 export PATH=$(brew --prefix ruby)/bin:$PATH
+export PATH=$(brew --prefix npm)/libexec/npm/bin:$PATH
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
