@@ -110,6 +110,8 @@ set mouse=a
 set noerrorbells
 " Don’t reset cursor to start of line when moving around.
 "set nostartofline
+" set same color for end tag in jsx
+highlight link xmlEndTag xmlTag
 " Show the cursor position
 set ruler
 " Don’t show the intro message when starting Vim
@@ -143,7 +145,7 @@ let g:jsx_ext_required = 0
 
 " Setup syntax checkers
 if filereadable('.eslintrc')
-  let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
+  "let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
   let g:neomake_javascript_enabled_makers = ['eslint']
   let g:neomake_jsx_enabled_makers = ['eslint']
 else
