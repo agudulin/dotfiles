@@ -29,7 +29,7 @@ Plugin 'benekastah/neomake'
 " comment blocks of code
 Plugin 'scrooloose/nerdcommenter'
 " awesome toolbar at the bottom
-Plugin 'Lokaltog/vim-powerline'
+"Plugin 'Lokaltog/vim-powerline'
 " html5
 Plugin 'othree/html5.vim'
 " markdown
@@ -83,7 +83,7 @@ set modelines=4
 set exrc
 set secure
 " Enable line numbers
-set number
+"set number
 " Enable syntax highlighting
 syntax on
 " Highlight current line
@@ -147,7 +147,7 @@ let g:jsx_ext_required = 0
 
 " Setup syntax checkers
 if filereadable('.eslintrc')
-  "let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
+  let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
   let g:neomake_javascript_enabled_makers = ['eslint']
   let g:neomake_jsx_enabled_makers = ['eslint']
 else
