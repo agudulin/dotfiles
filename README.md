@@ -26,3 +26,7 @@ brew install zsh
 
 brew install tmux
 ```
+
+### other
+
+- [sizeup](http://www.irradiatedsoftware.com/sizeup/)
