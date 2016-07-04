@@ -18,3 +18,11 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 nvim +PluginInstall +qall
 ```
+
+### software
+```sh
+brew install zsh
+# go to https://github.com/robbyrussell/oh-my-zsh#basic-installation to install oh-my-zsh
+
+brew install tmux
+```
