@@ -25,6 +25,7 @@ brew install zsh
 # go to https://github.com/robbyrussell/oh-my-zsh#basic-installation to install oh-my-zsh
 
 brew install tmux
+brew install ack
 ```
 
 ### other
