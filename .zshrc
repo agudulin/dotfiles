@@ -54,3 +54,5 @@ export PATH=$(brew --prefix npm)/libexec/npm/bin:$PATH
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+eval "$(rbenv init -)"
