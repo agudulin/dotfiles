@@ -3,7 +3,6 @@ set rtp+=~/.vim/bundle/vim-hybrid
 colorscheme hybrid
 " Make Vim more useful
 set nocompatible
-
 " ------------------------------------------------------------
 " required
 filetype off
@@ -64,6 +63,8 @@ set backspace=indent,eol,start
 "set lazyredraw
 " Add the g flag to search/replace by default
 set gdefault
+" Use en lang for messages
+let $LANG = 'en_US'
 " Use UTF-8 without BOM
 "set encoding=utf-8 nobomb
 " Change mapleader
