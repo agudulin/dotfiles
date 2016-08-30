@@ -27,8 +27,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'benekastah/neomake'
 " comment blocks of code
 Plugin 'scrooloose/nerdcommenter'
-" awesome toolbar at the bottom
-"Plugin 'Lokaltog/vim-powerline'
 " html5
 Plugin 'othree/html5.vim'
 " markdown
