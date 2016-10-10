@@ -59,3 +59,6 @@ eval "$(rbenv init -)"
 
 # use fzf for quick hacking
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+GPG_TTY=$(tty)
+export GPG_TTY
