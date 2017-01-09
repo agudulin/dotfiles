@@ -43,6 +43,8 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'lambdatoast/elm.vim'
 " editorconfig
 Plugin 'editorconfig/editorconfig-vim'
+" proper tmux syntax highlighting
+Plugin 'tmux-plugins/vim-tmux'
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
