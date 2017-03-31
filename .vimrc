@@ -3,6 +3,7 @@ set rtp+=~/.vim/bundle/vim-hybrid
 colorscheme hybrid
 " Make Vim more useful
 set nocompatible
+set autoread
 " ------------------------------------------------------------
 " required
 filetype off
@@ -21,6 +22,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'kchmck/vim-coffee-script'
 " syntax and indent plugins for js
 Plugin 'pangloss/vim-javascript'
+" syntax for capistrano tasks
+Plugin 'ain/vim-capistrano'
 " nerdtree is kind of toolbar
 Plugin 'scrooloose/nerdtree'
 " asynchronous :make using Neovim's job-control functionality
@@ -45,11 +48,14 @@ Plugin 'lambdatoast/elm.vim'
 Plugin 'editorconfig/editorconfig-vim'
 " proper tmux syntax highlighting
 Plugin 'tmux-plugins/vim-tmux'
+" some strange stuff
+Plugin 'floobits/floobits-neovim'
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " ------------------------------------------------------------
 
+au BufRead,BufNewFile *.rabl setf ruby
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enhance command-line completion
@@ -94,7 +100,7 @@ set completeopt=menuone
 " Make tabs as wide as two spaces
 set tabstop=2
 set shiftwidth=2
-set expandtab
+"set expandtab
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
