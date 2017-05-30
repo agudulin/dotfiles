@@ -50,6 +50,8 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tmux-plugins/vim-tmux'
 " some strange stuff
 Plugin 'floobits/floobits-neovim'
+" start screen
+Plugin 'mhinz/vim-startify'
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -60,8 +62,6 @@ au BufRead,BufNewFile *.rabl setf ruby
 set clipboard=unnamed
 " Enhance command-line completion
 set wildmenu
-" Allow cursor keys in insert mode
-set esckeys
 " Allow backspace in insert mode
 set backspace=indent,eol,start
 " Optimize for fast terminal connections

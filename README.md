@@ -1,9 +1,18 @@
 # dotfiles
 
+### init
+
+```sh
+git clone git@github.com:agudulin/dotfiles.git
+mv dotfiles/* ~
+```
+
 ### osx tweaks
 ```sh
 # fast key repeat
-defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false && \
+defaults write NSGlobalDomain KeyRepeat -int 1 && \
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
 ```
 
 ### nvim setup
@@ -26,6 +35,8 @@ brew install zsh
 
 brew install tmux
 brew install ack
+brew install python
+pip install neovim
 ```
 
 ### other
