@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="pure"
+ZSH_THEME="refined"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -51,9 +51,10 @@ export EDITOR="nvim"
 
 export PATH=$(brew --prefix ruby)/bin:$PATH
 export PATH=$(brew --prefix npm)/libexec/npm/bin:$PATH
+export PATH=$(yarn global bin):$PATH
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 eval "$(rbenv init -)"
 
