@@ -52,6 +52,8 @@ Plugin 'tmux-plugins/vim-tmux'
 Plugin 'floobits/floobits-neovim'
 " start screen
 Plugin 'mhinz/vim-startify'
+" %S/camelCase/woopWoop/gc
+Plugin 'tpope/tpope-vim-abolish'
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
