@@ -12,8 +12,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-" find files by ctrl-p shortcut
-Plugin 'ctrlpvim/ctrlp.vim'
+" find files with fzf
+Plugin 'junegunn/fzf'
 " highlight trailing whitespaces
 Plugin 'ntpeters/vim-better-whitespace'
 " awesome vim
@@ -54,6 +54,8 @@ Plugin 'floobits/floobits-neovim'
 Plugin 'mhinz/vim-startify'
 " %S/camelCase/woopWoop/gc
 Plugin 'tpope/tpope-vim-abolish'
+" move between Vim panes and tmux splits seamlessly
+Plugin 'christoomey/vim-tmux-navigator'
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -137,8 +139,6 @@ set showcmd
 set lsp=1
 " NerdTree style for project list (file-tree)
 let g:netrw_liststyle=3
-" Tweak CTRL-P
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 " Open NERDTree and highlight current file by \n
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
@@ -190,6 +190,8 @@ endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
+" Map Ctrl-P to fzf
+noremap <C-P> :FZF<CR>
 
 " Automatic commands
 if has("autocmd")
