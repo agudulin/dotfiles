@@ -56,6 +56,8 @@ Plugin 'mhinz/vim-startify'
 Plugin 'tpope/tpope-vim-abolish'
 " move between Vim panes and tmux splits seamlessly
 Plugin 'christoomey/vim-tmux-navigator'
+" clojure stuff
+Plugin 'tpope/vim-fireplace'
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
