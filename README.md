@@ -36,6 +36,7 @@ brew install zsh
 brew install tmux
 brew install ack
 brew install fzf
+brew install yarn
 brew install python
 pip install neovim
 ```
