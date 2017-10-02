@@ -46,6 +46,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias :q=exit
 alias ls=exa
+alias la="exa -la"
 
 export GITHUB_USER="agudulin"
 export EDITOR="nvim"
