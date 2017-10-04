@@ -60,6 +60,9 @@ export PATH=$(yarn global bin):$PATH
 
 eval "$(rbenv init -)"
 
+# load avn
+[ -f ~/.avn/bin/avn.sh ] && source ~/.avn/bin/avn.sh
+
 # use fzf for quick hacking
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
