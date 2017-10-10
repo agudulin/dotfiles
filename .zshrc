@@ -47,6 +47,7 @@ source $ZSH/oh-my-zsh.sh
 alias :q=exit
 alias ls=exa
 alias la="exa -la"
+alias c="clear"
 
 export GITHUB_USER="agudulin"
 export EDITOR="nvim"
