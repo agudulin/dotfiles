@@ -157,7 +157,7 @@ let g:vim_markdown_math=1
 let g:jsx_ext_required = 0
 
 " Setup syntax checkers
-if filereadable('.eslintrc')
+if filereadable('.eslintrc') || filereadable('.eslintrc.json')
   let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
   let g:neomake_javascript_enabled_makers = ['eslint']
   let g:neomake_jsx_enabled_makers = ['eslint']
