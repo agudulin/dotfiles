@@ -1,10 +1,14 @@
 # dotfiles
 
 ### init
-
 ```sh
 git clone git@github.com:agudulin/dotfiles.git
 mv dotfiles/* ~
+```
+
+### required
+```sh
+xcode-select --install
 ```
 
 ### osx tweaks
