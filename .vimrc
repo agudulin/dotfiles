@@ -2,7 +2,6 @@ set background=dark
 set rtp+=~/.vim/bundle/vim-hybrid
 colorscheme hybrid
 " Make Vim more useful
-set nocompatible
 set autoread
 " ------------------------------------------------------------
 " required

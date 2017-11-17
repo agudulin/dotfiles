@@ -24,6 +24,7 @@ export GPG_TTY=$(tty)
 
 # personal aliases
 alias :q=exit
+alias :qa=exit
 alias ls=exa
 alias la="exa -la"
 alias c="clear"
