@@ -57,6 +57,8 @@ Plugin 'tpope/tpope-vim-abolish'
 Plugin 'christoomey/vim-tmux-navigator'
 " clojure stuff
 Plugin 'tpope/vim-fireplace'
+" handlebars
+Plugin 'mustache/vim-mustache-handlebars'
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
