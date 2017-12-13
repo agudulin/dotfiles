@@ -7,61 +7,58 @@ set autoread
 " required
 filetype off
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/bundle')
 " find files with fzf
-Plugin 'junegunn/fzf'
+Plug 'junegunn/fzf'
 " highlight trailing whitespaces
-Plugin 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 " awesome vim
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " syntax highlighting for coffeescript
-Plugin 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script'
 " syntax and indent plugins for js
-Plugin 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 " syntax for capistrano tasks
-Plugin 'ain/vim-capistrano'
+Plug 'ain/vim-capistrano'
 " nerdtree is kind of toolbar
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 " asynchronous :make using Neovim's job-control functionality
-Plugin 'benekastah/neomake'
+Plug 'benekastah/neomake'
 " comment blocks of code
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 " html5
-Plugin 'othree/html5.vim'
+Plug 'othree/html5.vim'
 " markdown
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 " es6, react.js
-Plugin 'mxw/vim-jsx'
+Plug 'mxw/vim-jsx'
 " color scheme
-Plugin 'w0ng/vim-hybrid'
+Plug 'w0ng/vim-hybrid'
 " search in project
-Plugin 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 " clojure
-Plugin 'guns/vim-clojure-static'
+Plug 'guns/vim-clojure-static'
 " elm
-Plugin 'lambdatoast/elm.vim'
+Plug 'lambdatoast/elm.vim'
 " editorconfig
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 " proper tmux syntax highlighting
-Plugin 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux'
 " some strange stuff
-Plugin 'floobits/floobits-neovim'
+Plug 'floobits/floobits-neovim'
 " start screen
-Plugin 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 " %S/camelCase/woopWoop/gc
-Plugin 'tpope/tpope-vim-abolish'
+Plug 'tpope/tpope-vim-abolish'
 " move between Vim panes and tmux splits seamlessly
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 " clojure stuff
-Plugin 'tpope/vim-fireplace'
+Plug 'tpope/vim-fireplace'
 " handlebars
-Plugin 'mustache/vim-mustache-handlebars'
-" all of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+Plug 'mustache/vim-mustache-handlebars'
+" init plugin system
+call plug#end()
+filetype plugin indent on
 " ------------------------------------------------------------
 
 au BufRead,BufNewFile *.rabl setf ruby
