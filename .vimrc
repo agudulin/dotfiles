@@ -1,5 +1,6 @@
 set background=dark
 set rtp+=~/.vim/bundle/vim-hybrid
+set hidden
 colorscheme hybrid
 " Make Vim more useful
 set autoread
@@ -56,6 +57,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-fireplace'
 " handlebars
 Plug 'mustache/vim-mustache-handlebars'
+" display buffers
+Plug 'ap/vim-buftabline'
 " init plugin system
 call plug#end()
 filetype plugin indent on
@@ -142,8 +145,16 @@ let g:netrw_liststyle=3
 " Open NERDTree and highlight current file by \n
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
-" Open new tab
+" tabs
 nmap <silent><leader>to :tabnew .<CR>
+nmap gt :tabnext<CR>
+nmap gT :tabprevious<CR>
+" buffers
+nmap <silent><leader>bo :enew<CR>
+nmap <silent><leader>bl :ls<CR>
+nmap <silent><leader>bq :bp <BAR> bd #<CR>
+nmap <silent><leader>bn :bnext<CR>
+nmap <silent><leader>bp :bprevious<CR>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
