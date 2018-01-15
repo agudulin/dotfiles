@@ -1,5 +1,6 @@
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
+BASE16_SHELL=$HOME/.config/base16-shell/
 
 export ZSH=$HOME/.oh-my-zsh
 
@@ -37,3 +38,4 @@ eval "$(rbenv init -)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $ZSH/oh-my-zsh.sh
 
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"

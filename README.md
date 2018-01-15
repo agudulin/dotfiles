@@ -38,6 +38,9 @@ nvim +PlugInstall +qall
 brew install zsh
 # go to https://github.com/robbyrussell/oh-my-zsh#basic-installation to install oh-my-zsh
 
+# shell colorscheme
+git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+
 brew install tmux
 brew install reattach-to-user-namespace
 brew install ack

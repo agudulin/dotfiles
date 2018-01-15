@@ -1,7 +1,5 @@
-set background=dark
 set rtp+=~/.vim/bundle/vim-hybrid
 set hidden
-colorscheme hybrid
 " Make Vim more useful
 set autoread
 " ------------------------------------------------------------
@@ -33,8 +31,6 @@ Plug 'othree/html5.vim'
 Plug 'godlygeek/tabular'
 " es6, react.js
 Plug 'mxw/vim-jsx'
-" color scheme
-Plug 'w0ng/vim-hybrid'
 " search in project
 Plug 'mileszs/ack.vim'
 " clojure
@@ -47,8 +43,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tmux-plugins/vim-tmux'
 " some strange stuff
 Plug 'floobits/floobits-neovim'
-" start screen
-Plug 'mhinz/vim-startify'
 " %S/camelCase/woopWoop/gc
 Plug 'tpope/tpope-vim-abolish'
 " move between Vim panes and tmux splits seamlessly
@@ -59,6 +53,8 @@ Plug 'tpope/vim-fireplace'
 Plug 'mustache/vim-mustache-handlebars'
 " display buffers
 Plug 'ap/vim-buftabline'
+" colorschemes
+Plug 'chriskempson/base16-vim'
 " init plugin system
 call plug#end()
 filetype plugin indent on
@@ -135,7 +131,7 @@ set shortmess=atI
 " Show the current mode
 set showmode
 " Show the filename in the window titlebar
-set title
+"set title
 " Show the (partial) command as it’s being typed
 set showcmd
 " Number of pixel lines to use between characters¬
@@ -203,6 +199,12 @@ noremap <leader>ss :call StripWhitespace()<CR>
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 " Map Ctrl-P to fzf
 noremap <C-P> :FZF<CR>
+
+" get the current color scheme from the file
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " Automatic commands
 if has("autocmd")
