@@ -3,6 +3,7 @@
 
 # but
 !.gitignore
+!.gitignore-global
 !.tmux.conf
 !.vimrc
 !.zshrc

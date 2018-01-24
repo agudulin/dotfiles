@@ -4,6 +4,7 @@
 ```sh
 git clone git@github.com:agudulin/dotfiles.git
 mv dotfiles/* ~
+git config --global core.excludesfile ~/.gitignore-global
 ```
 
 ### required
