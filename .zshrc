@@ -23,13 +23,6 @@ export PATH=$HOME/.cargo/bin:$PATH
 export EDITOR="nvim"
 export GPG_TTY=$(tty)
 
-# personal aliases
-alias :q=exit
-alias :qa=exit
-alias ls=exa
-alias la="exa -la"
-alias c="clear"
-
 eval "$(rbenv init -)"
 
 # load scripts
@@ -39,3 +32,10 @@ eval "$(rbenv init -)"
 source $ZSH/oh-my-zsh.sh
 
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
+# personal aliases
+alias :q=exit
+alias :qa=exit
+alias ls=exa
+alias la="exa -la"
+alias c="clear"
