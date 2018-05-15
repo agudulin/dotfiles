@@ -20,7 +20,7 @@ export PATH=$(brew --prefix npm)/libexec/npm/bin:$PATH
 export PATH=$(yarn global bin):$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 
-export EDITOR="nvim"
+export EDITOR="vim"
 export GPG_TTY=$(tty)
 
 eval "$(rbenv init -)"
