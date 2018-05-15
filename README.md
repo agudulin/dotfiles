@@ -20,18 +20,14 @@ defaults write NSGlobalDomain KeyRepeat -int 1 && \
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 ```
 
-### nvim setup
+### vim setup
 ```sh
-brew install neovim/neovim/neovim
+brew install vim
 
 mkdir ~/.vim
-mkdir -p ~/.config/nvim
-ln -s ~/.vim ~/.config/nvim
-ln -s ~/.vimrc ~/.config/nvim/init.vim
-
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim +PlugInstall +qall
+vim +PlugInstall +qall
 ```
 
 ### software
@@ -48,7 +44,6 @@ brew install ack
 brew install fzf
 brew install yarn
 brew install python
-pip install neovim
 ```
 
 ### other

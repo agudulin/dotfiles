@@ -13,16 +13,10 @@ Plug 'junegunn/fzf'
 Plug 'ntpeters/vim-better-whitespace'
 " awesome vim
 Plug 'tpope/vim-fugitive'
-" syntax highlighting for coffeescript
-Plug 'kchmck/vim-coffee-script'
 " syntax and indent plugins for js
 Plug 'pangloss/vim-javascript'
-" syntax for capistrano tasks
-Plug 'ain/vim-capistrano'
 " nerdtree is kind of toolbar
 Plug 'scrooloose/nerdtree'
-" asynchronous :make using Neovim's job-control functionality
-Plug 'benekastah/neomake'
 " comment blocks of code
 Plug 'scrooloose/nerdcommenter'
 " html5
@@ -35,14 +29,10 @@ Plug 'mxw/vim-jsx'
 Plug 'mileszs/ack.vim'
 " clojure
 Plug 'guns/vim-clojure-static'
-" elm
-Plug 'lambdatoast/elm.vim'
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
 " proper tmux syntax highlighting
 Plug 'tmux-plugins/vim-tmux'
-" some strange stuff
-Plug 'floobits/floobits-neovim'
 " %S/camelCase/woopWoop/gc
 Plug 'tpope/tpope-vim-abolish'
 " move between Vim panes and tmux splits seamlessly
@@ -60,7 +50,6 @@ call plug#end()
 filetype plugin indent on
 " ------------------------------------------------------------
 
-au BufRead,BufNewFile *.rabl setf ruby
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enhance command-line completion
@@ -138,6 +127,10 @@ set showcmd
 set lsp=1
 " NerdTree style for project list (file-tree)
 let g:netrw_liststyle=3
+" set colorscheme
+let base16colorspace=256
+colorscheme base16-default-dark
+
 " Open NERDTree and highlight current file by \n
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
@@ -154,57 +147,15 @@ nmap <silent><leader>bp :bprevious<CR>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-" Coffeelint options
-let coffee_lint_options = '-f ~/.coffeelint.json'
 " Markdown latex math escaping
 let g:vim_markdown_math=1
 " Use JSX syntax in .js files
 let g:jsx_ext_required = 0
 
-" Setup syntax checkers
-if filereadable('.eslintrc') || filereadable('.eslintrc.json')
-  let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
-  let g:neomake_javascript_enabled_makers = ['eslint']
-  let g:neomake_jsx_enabled_makers = ['eslint']
-else
-  let g:neomake_javascript_enabled_makers = ['standard']
-  let g:neomake_jsx_enabled_makers = ['standard']
-endif
-autocmd! BufWritePost * Neomake
-
-function! s:standard()
-  let g:neomake_javascript_enabled_makers = ['standard']
-  let g:neomake_jsx_enabled_makers = ['standard']
-  Neomake
-endfunction
-command! Standard :call <SID>standard()
-
-function! s:eslint()
-  let g:neomake_javascript_enabled_makers = ['eslint']
-  let g:neomake_jsx_enabled_makers = ['eslint']
-  Neomake
-endfunction
-command! Eslint :call <SID>eslint()
-
-" Strip trailing whitespace (,ss)
-function! StripWhitespace()
-  let save_cursor = getpos(".")
-  let old_query = getreg('/')
-  :%s/\s\+$//e
-  call setpos('.', save_cursor)
-  call setreg('/', old_query)
-endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 " Map Ctrl-P to fzf
 noremap <C-P> :FZF<CR>
-
-" get the current color scheme from the file
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
 
 " Automatic commands
 if has("autocmd")
@@ -214,6 +165,7 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
   " Treat .md files as Markdown
   autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+  autocmd BufNewFile,BufRead *.mdx setlocal filetype=markdown
   " Treat .boot files as Clojure
   autocmd BufNewFile,BufRead *.boot setlocal filetype=clojure
 endif
