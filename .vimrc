@@ -156,6 +156,10 @@ let g:jsx_ext_required = 0
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 " Map Ctrl-P to fzf
 noremap <C-P> :FZF<CR>
+" use ag over ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " Automatic commands
 if has("autocmd")

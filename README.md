@@ -40,7 +40,7 @@ git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shel
 
 brew install tmux
 brew install reattach-to-user-namespace
-brew install ack
+brew install ag
 brew install fzf
 brew install yarn
 brew install python

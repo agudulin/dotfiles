@@ -2,7 +2,6 @@
 *
 
 # but
-!.ackrc
 !.gitignore
 !.gitignore-global
 !.tmux.conf
