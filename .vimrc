@@ -1,4 +1,3 @@
-set rtp+=~/.vim/bundle/vim-hybrid
 set hidden
 " Make Vim more useful
 set autoread
@@ -43,8 +42,6 @@ Plug 'tpope/vim-fireplace'
 Plug 'mustache/vim-mustache-handlebars'
 " display buffers
 Plug 'ap/vim-buftabline'
-" colorschemes
-Plug 'chriskempson/base16-vim'
 " init plugin system
 call plug#end()
 filetype plugin indent on
@@ -127,9 +124,6 @@ set showcmd
 set lsp=1
 " NerdTree style for project list (file-tree)
 let g:netrw_liststyle=3
-" set colorscheme
-let base16colorspace=256
-colorscheme base16-default-dark
 
 " Open NERDTree and highlight current file by \n
 nmap <leader>n :NERDTreeFind<CR>
@@ -160,6 +154,7 @@ noremap <C-P> :FZF<CR>
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Automatic commands
 if has("autocmd")
