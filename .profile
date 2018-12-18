@@ -10,12 +10,11 @@ EDITOR="vim"
 
 PS1='\[\e[1m\]$(pwd)$\[\e[0m\] '
 
-export PATH LC_ALL EDITOR PS1
-
 eval "$(rbenv init -)"
 
+export PATH LC_ALL EDITOR PS1
+
 # load scripts
-[ -f ~/.avn/bin/avn.sh ] && source ~/.avn/bin/avn.sh
 [ -f ~/.nvm/nvm.sh ] && source ~/.nvm/nvm.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
