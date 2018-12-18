@@ -31,3 +31,5 @@ alias glog="git log"
 
 alias ..="cd .."
 alias ...="cd ../.."
+alias ....="cd ../../.."
+alias -- -="cd -"
