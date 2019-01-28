@@ -13,6 +13,7 @@ PS1='\[\e[1m\]$(pwd)$\[\e[0m\] '
 eval "$(rbenv init -)"
 
 export PATH LC_ALL EDITOR PS1
+export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
 
 # load scripts
 [ -f ~/.nvm/nvm.sh ] && source ~/.nvm/nvm.sh
