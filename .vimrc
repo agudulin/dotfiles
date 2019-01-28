@@ -1,4 +1,5 @@
 set hidden
+colorscheme alabaster
 " Make Vim more useful
 set autoread
 " ------------------------------------------------------------
@@ -154,7 +155,6 @@ noremap <C-P> :FZF<CR>
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Automatic commands
 if has("autocmd")
