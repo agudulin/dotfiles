@@ -14,6 +14,7 @@ eval "$(rbenv init -)"
 
 export PATH LC_ALL EDITOR PS1
 export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # load scripts
 [ -f ~/.nvm/nvm.sh ] && source ~/.nvm/nvm.sh
