@@ -142,8 +142,6 @@ nmap <silent><leader>bp :bprevious<CR>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-" Markdown latex math escaping
-let g:vim_markdown_math=1
 " Use JSX syntax in .js files
 let g:jsx_ext_required = 0
 
@@ -162,6 +160,8 @@ if has("autocmd")
   filetype on
   " Treat .json files as .js
   autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+  " Treat .ts files as .js
+  autocmd BufNewFile,BufRead *.ts setlocal syntax=javascript
   " Treat .md files as Markdown
   autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
   autocmd BufNewFile,BufRead *.mdx setlocal filetype=markdown
