@@ -10,19 +10,15 @@ EDITOR="vim"
 
 PS1='\[\e[1m\]$(pwd)$\[\e[0m\] '
 
-eval "$(rbenv init -)"
-
 export PATH LC_ALL EDITOR PS1
 export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # load scripts
-[ -f ~/.nvm/nvm.sh ] && source ~/.nvm/nvm.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # personal aliases
 alias :q=exit
-alias :qa=exit
 alias ls=exa
 alias la="exa -la"
 alias c="clear"
