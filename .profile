@@ -31,3 +31,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias -- -="cd -"
+
+eval $(/opt/homebrew/bin/brew shellenv)
+eval "$(pyenv init -)"

@@ -1,5 +1,5 @@
 set hidden
-colorscheme alabaster
+" colorscheme alabaster
 " Make Vim more useful
 set autoread
 " ------------------------------------------------------------
@@ -24,7 +24,9 @@ Plug 'othree/html5.vim'
 " markdown
 Plug 'godlygeek/tabular'
 " es6, react.js
-Plug 'mxw/vim-jsx'
+"Plug 'mxw/vim-jsx'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 " search in project
 Plug 'mileszs/ack.vim'
 " clojure
@@ -43,6 +45,19 @@ Plug 'tpope/vim-fireplace'
 Plug 'mustache/vim-mustache-handlebars'
 " display buffers
 Plug 'ap/vim-buftabline'
+" prettier
+Plug 'prettier/vim-prettier', {
+      \ 'do': 'yarn install',
+      \ 'for': [
+      \ 'javascript',
+      \ 'javascriptreact',
+      \ 'typescript',
+      \ 'typescriptreact',
+      \ 'css',
+      \ 'less',
+      \ 'scss',
+      \ 'yaml',
+      \ 'json' ] }
 " init plugin system
 call plug#end()
 filetype plugin indent on
@@ -110,7 +125,7 @@ set noerrorbells
 " Don’t reset cursor to start of line when moving around.
 "set nostartofline
 " set same color for end tag in jsx
-highlight link xmlEndTag xmlTag
+"highlight link xmlEndTag xmlTag
 " Show the cursor position
 set ruler
 " Don’t show the intro message when starting Vim
@@ -154,6 +169,18 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+" vim-prettier
+augroup plugin_prettier
+  autocmd!
+  autocmd BufWritePre *.js Prettier
+  autocmd BufWritePre *.tsx Prettier
+  autocmd BufWritePre *.jsx,*.mjs,*.ts,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml Prettier
+augroup END
+" avoid wrapping a single arrow function param in parens
+" avoid|always
+" default: 'avoid'
+let g:prettier#config#arrow_parens = get(g:,'prettier#config#arrow_parens', 'always')
+
 " Automatic commands
 if has("autocmd")
   " Enable file type detection
@@ -161,7 +188,7 @@ if has("autocmd")
   " Treat .json files as .js
   autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
   " Treat .ts files as .js
-  autocmd BufNewFile,BufRead *.ts setlocal syntax=javascript
+  autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
   " Treat .md files as Markdown
   autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
   autocmd BufNewFile,BufRead *.mdx setlocal filetype=markdown
