@@ -13,8 +13,6 @@ Plug 'junegunn/fzf'
 Plug 'ntpeters/vim-better-whitespace'
 " awesome vim
 Plug 'tpope/vim-fugitive'
-" syntax and indent plugins for js
-Plug 'pangloss/vim-javascript'
 " nerdtree is kind of toolbar
 Plug 'scrooloose/nerdtree'
 " comment blocks of code
@@ -23,10 +21,22 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'othree/html5.vim'
 " markdown
 Plug 'godlygeek/tabular'
-" es6, react.js
-"Plug 'mxw/vim-jsx'
+
+" syntax and indent plugins for js
+" Plug 'pangloss/vim-javascript'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'peitalin/vim-jsx-typescript'
+
+Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = [
+  \ 'coc-tsserver'
+  \ ]
+
 " search in project
 Plug 'mileszs/ack.vim'
 " clojure
@@ -58,6 +68,11 @@ Plug 'prettier/vim-prettier', {
       \ 'scss',
       \ 'yaml',
       \ 'json' ] }
+Plug 'tomlion/vim-solidity'
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+\}
 " init plugin system
 call plug#end()
 filetype plugin indent on
@@ -140,6 +155,8 @@ set showcmd
 set lsp=1
 " NerdTree style for project list (file-tree)
 let g:netrw_liststyle=3
+" Add a space after comment delimeter
+let NERDSpaceDelims=1
 
 " Open NERDTree and highlight current file by \n
 nmap <leader>n :NERDTreeFind<CR>
@@ -169,17 +186,25 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-" vim-prettier
 augroup plugin_prettier
   autocmd!
   autocmd BufWritePre *.js Prettier
   autocmd BufWritePre *.tsx Prettier
   autocmd BufWritePre *.jsx,*.mjs,*.ts,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml Prettier
 augroup END
-" avoid wrapping a single arrow function param in parens
-" avoid|always
-" default: 'avoid'
+
 let g:prettier#config#arrow_parens = get(g:,'prettier#config#arrow_parens', 'always')
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
+" let g:typescript_compiler_binary = 'tsc'
+" let g:typescript_compiler_options = '--noemit --jsx'
 
 " Automatic commands
 if has("autocmd")
@@ -187,11 +212,36 @@ if has("autocmd")
   filetype on
   " Treat .json files as .js
   autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-  " Treat .ts files as .js
-  autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
   " Treat .md files as Markdown
   autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
   autocmd BufNewFile,BufRead *.mdx setlocal filetype=markdown
   " Treat .boot files as Clojure
   autocmd BufNewFile,BufRead *.boot setlocal filetype=clojure
+  autocmd BufNewFile,BufRead *.clar setlocal filetype=clojure
+
+  autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+  autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
 endif
+
+function! ShowDocIfNoDiagnostic(timer_id)
+  if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
+    silent call CocActionAsync('doHover')
+  endif
+endfunction
+
+function! s:show_hover_doc()
+  call timer_start(30, 'ShowDocIfNoDiagnostic')
+endfunction
+
+autocmd CursorHoldI * :call <SID>show_hover_doc()
+autocmd CursorHold * :call <SID>show_hover_doc()
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gf <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+
+hi! CocErrorSign guifg=#d1666a
+hi! CocInfoSign guibg=#353b45
+hi! CocWarningSign guifg=#ac07e3
