@@ -21,17 +21,13 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'othree/html5.vim'
 " markdown
 Plug 'godlygeek/tabular'
-
-" syntax and indent plugins for js
-" Plug 'pangloss/vim-javascript'
-" Plug 'leafgarland/typescript-vim'
-" Plug 'peitalin/vim-jsx-typescript'
+" move lines
+" Plug 'matze/vim-move'
 
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'jparise/vim-graphql'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
   \ 'coc-tsserver'
@@ -41,6 +37,8 @@ let g:coc_global_extensions = [
 Plug 'mileszs/ack.vim'
 " clojure
 Plug 'guns/vim-clojure-static'
+" clojure stuff
+Plug 'tpope/vim-fireplace'
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
 " proper tmux syntax highlighting
@@ -49,10 +47,6 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/tpope-vim-abolish'
 " move between Vim panes and tmux splits seamlessly
 Plug 'christoomey/vim-tmux-navigator'
-" clojure stuff
-Plug 'tpope/vim-fireplace'
-" handlebars
-Plug 'mustache/vim-mustache-handlebars'
 " display buffers
 Plug 'ap/vim-buftabline'
 " prettier
@@ -68,7 +62,6 @@ Plug 'prettier/vim-prettier', {
       \ 'scss',
       \ 'yaml',
       \ 'json' ] }
-Plug 'tomlion/vim-solidity'
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
   \ 'do': 'make install'
@@ -114,7 +107,7 @@ set secure
 " Enable syntax highlighting
 syntax on
 " Highlight current line
-"set cursorline
+" set cursorline
 " By default it is preview,menuone
 set completeopt=menuone
 " Make tabs as wide as two spaces
@@ -203,8 +196,8 @@ if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
   let g:coc_global_extensions += ['coc-eslint']
 endif
 
-" let g:typescript_compiler_binary = 'tsc'
-" let g:typescript_compiler_options = '--noemit --jsx'
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = '--noemit --jsx'
 
 " Automatic commands
 if has("autocmd")
@@ -223,6 +216,29 @@ if has("autocmd")
   autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 endif
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+    nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+    nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+    let g:lsp_format_sync_timeout = 1000
+    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+
+    " refer to doc to add more commands
+endfunction
 
 function! ShowDocIfNoDiagnostic(timer_id)
   if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
@@ -245,3 +261,10 @@ nmap <silent> gr <Plug>(coc-references)
 hi! CocErrorSign guifg=#d1666a
 hi! CocInfoSign guibg=#353b45
 hi! CocWarningSign guifg=#ac07e3
+
+nnoremap <down> :m .+1<CR>==
+nnoremap <up> :m .-2<CR>==
+inoremap <down> <Esc>:m .+1<CR>==gi
+inoremap <up> <Esc>:m .-2<CR>==gi
+vnoremap <down> :m '>+1<CR>gv=gv
+vnoremap <up> :m '<-2<CR>gv=gv
