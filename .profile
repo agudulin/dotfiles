@@ -15,12 +15,14 @@ export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export NVM_DIR="$HOME/.nvm"
 
+source "$HOME/.env"
+
 # load scripts
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source "$HOME/.cargo/env"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 eval $(/opt/homebrew/bin/brew shellenv)
 eval "$(pyenv init -)"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 
 # personal aliases
 alias :q=exit
